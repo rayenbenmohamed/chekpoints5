@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {Description,Image,Name,Price} from "./components/products/index";
+import Card from 'react-bootstrap/Card';
+import image from "./assets/image.png"
+import ListGroup from 'react-bootstrap/ListGroup';
 function App() {
+  let name; // name === undefined
+  name = "rayen";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Card style={{ width: '18rem' }}>
+      <Image />
+      <Card.Body>
+        <Card.Title><Name /></Card.Title>
+        <Card.Text>
+        <Description />
+        </Card.Text>
+      </Card.Body>
+      <Card.Body>
+        <Card.Link href="#"><Price /></Card.Link>
+        <Card.Footer> {name !== undefined ? `Bonjour ${name}` : "Hello, there!"  } </Card.Footer>
+        {name && <Card.Img src={image} />}
+      </Card.Body>
+    </Card>
+
+
+    </>
   );
 }
 
